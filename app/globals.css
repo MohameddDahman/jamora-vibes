@@ -1,26 +1,86 @@
+/* app/globals.css */
 @import "tailwindcss";
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
-}
+@theme {
+  /* Surfaces — true white paper, true near-black, neutral studio sweep.
+     The old warm cream/brown palette is what made this read as a boutique
+     craft shop; gear brands sit on hard white and hard black. */
+  --color-paper: #ffffff;
+  --color-stage: #f2f1ee; /* backdrop behind cut-out product photography */
+  --color-ink: #0e0e0f; /* headers, footers, display type */
+  --color-graphite: #6b6a67; /* secondary text */
+  --color-line: #e3e2de; /* hairlines and dividers */
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
+  /* Single accent. Reserved for the sound-sample affordance — the one thing
+     this store does that the guitar giants can't. Used nowhere else at full
+     strength. */
+  --color-brass: #b8874a;
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+  /* Light text on dark surfaces */
+  --color-ivory: #f7f6f3;
+
+  /* Status only */
+  --color-oxblood: #7a2e2e;
+  --color-walnut: #2e1f16;
+  --color-sage: #6b7550;
+
+  --font-display: var(--font-archivo);
+  --font-sans: var(--font-inter);
+  --font-mono: var(--font-jetbrains);
 }
 
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  background-color: var(--color-paper);
+  color: var(--color-ink);
+}
+
+/* Display type is set tight and heavy — the stance of equipment branding. */
+.display-xl {
+  font-family: var(--font-display);
+  font-weight: 800;
+  letter-spacing: -0.03em;
+  line-height: 0.95;
+}
+
+.display-lg {
+  font-family: var(--font-display);
+  font-weight: 700;
+  letter-spacing: -0.025em;
+  line-height: 1.02;
+}
+
+.display-md {
+  font-family: var(--font-display);
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  line-height: 1.08;
+}
+
+/* Small all-caps utility label used for eyebrows and section markers. */
+.label {
+  font-family: var(--font-sans);
+  font-size: 0.6875rem;
+  font-weight: 600;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+@keyframes tagFill {
+  from {
+    width: 0%;
+  }
+  to {
+    width: 100%;
+  }
 }
