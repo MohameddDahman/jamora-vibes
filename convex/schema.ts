@@ -45,6 +45,13 @@ export default defineSchema({
       filterFields: ["category"],
     }),
 
+  // Small key/value store for things the admin can change that are not
+  // products or orders - currently just the Our Story audio track.
+  settings: defineTable({
+    key: v.string(),
+    value: v.string(),
+  }).index("by_key", ["key"]),
+
   shippingRates: defineTable({
     governorate: v.string(),
     fee: v.number(), // L.E, flat COD shipping fee for this governorate

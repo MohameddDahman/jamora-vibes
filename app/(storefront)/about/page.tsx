@@ -93,12 +93,17 @@ const PROMISES = [
 ];
 
 export default function AboutPage() {
-  // The transport plays a real sample from the catalogue, so this page
-  // demonstrates the feature instead of describing it.
+  // The transport plays whatever the admin has set under Settings. If that
+  // has not been chosen yet, fall back to the first catalogue sample so the
+  // page still demonstrates the feature rather than losing it.
+  const storyAudio = useQuery(api.settings.getStoryAudio);
   const catalogue = useQuery(api.products.list, {
     paginationOpts: { numItems: 20, cursor: null },
   });
-  const track = catalogue?.page.find((p) => p.sound);
+  const fallback = catalogue?.page.find((p) => p.sound);
+
+  const audioUrl = storyAudio ?? fallback?.sound;
+  const audioLabel = storyAudio ? "The session" : fallback?.name;
 
   return (
     <div className="w-full bg-ink">
@@ -119,10 +124,10 @@ export default function AboutPage() {
               This page is a session — press play on the bar below and read along.
             </p>
 
-            {track && (
+            {audioUrl && audioLabel && (
               <p className="mt-7 flex items-center gap-2.5 font-mono text-xs text-ivory/40">
                 <span className="h-1.5 w-1.5 animate-pulse rounded-full bg-brass" />
-                Cued — {track.name}
+                Cued — {audioLabel}
               </p>
             )}
           </div>
@@ -199,7 +204,7 @@ export default function AboutPage() {
         </div>
       </section>
 
-      <SessionTransport soundUrl={track?.sound} markers={MARKERS} targetId={STORY_ID} />
+      <SessionTransport soundUrl={audioUrl} markers={MARKERS} targetId={STORY_ID} />
     </div>
   );
 }

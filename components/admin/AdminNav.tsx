@@ -3,13 +3,14 @@
 
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { LayoutGrid, Package, Truck, ClipboardList } from "lucide-react";
+import { LayoutGrid, Package, Truck, ClipboardList, SlidersHorizontal } from "lucide-react";
 
 export const ADMIN_NAV = [
   { href: "/admin", label: "Overview", icon: LayoutGrid },
   { href: "/admin/orders", label: "Orders", icon: ClipboardList },
   { href: "/admin/products", label: "Products", icon: Package },
   { href: "/admin/shipping", label: "Shipping Rates", icon: Truck },
+  { href: "/admin/settings", label: "Settings", icon: SlidersHorizontal },
 ];
 
 export function isAdminRouteActive(href: string, pathname: string) {

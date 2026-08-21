@@ -1,6 +1,6 @@
 // components/Footer.tsx
 import Link from "next/link";
-import { Mail, Phone } from "lucide-react";
+import { Phone } from "lucide-react";
 import { FAMILIES } from "@/lib/families";
 
 function InstagramIcon() {
@@ -106,15 +106,6 @@ export function Footer() {
                 >
                   <Phone size={14} strokeWidth={1.5} className="shrink-0 text-ivory/35" />
                   +20 115 184 5678
-                </a>
-              </li>
-              <li>
-                <a
-                  href="mailto:hello@jamoravibes.com"
-                  className="flex items-center gap-2.5 font-sans text-sm text-ivory/55 transition-colors hover:text-ivory"
-                >
-                  <Mail size={14} strokeWidth={1.5} className="shrink-0 text-ivory/35" />
-                  hello@jamoravibes.com
                 </a>
               </li>
             </ul>
