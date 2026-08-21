@@ -29,9 +29,19 @@
   --font-mono: var(--font-jetbrains);
 }
 
+/* The browser paints anything outside the document - rubber-band overscroll
+   and the Android gesture-bar strip - with the canvas colour. With no
+   background on <html> the body's white propagates there and shows as a
+   white band under the dark footer, so give <html> its own dark ground. */
+html {
+  background-color: var(--color-ink);
+}
+
 body {
   background-color: var(--color-paper);
   color: var(--color-ink);
+  /* The body box still covers the whole document, so pages are unchanged. */
+  min-height: 100%;
 }
 
 /* Display type is set tight and heavy — the stance of equipment branding. */

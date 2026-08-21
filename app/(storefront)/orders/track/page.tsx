@@ -148,8 +148,8 @@ function TrackForm() {
           <p className="mt-1.5 font-sans text-sm leading-relaxed text-graphite">
             Check it against your confirmation — it is five characters after JV-. Still stuck?
             Call us on{" "}
-            <a href="tel:+201000000000" className="text-ink underline underline-offset-4">
-              +20 10 000 0000
+            <a href="tel:+201151845678" className="text-ink underline underline-offset-4">
+              +20 115 184 5678
             </a>
             .
           </p>

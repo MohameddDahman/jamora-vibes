@@ -1,5 +1,5 @@
 // app/layout.tsx
-import type { Metadata } from "next";
+import type { Metadata, Viewport } from "next";
 import { Archivo, Inter, JetBrains_Mono } from "next/font/google";
 import { ConvexClientProvider } from "@/components/ConvexClientProvider";
 import { CartProvider } from "@/context/CartContext";
@@ -25,6 +25,12 @@ const jetbrainsMono = JetBrains_Mono({
 export const metadata: Metadata = {
   title: "Jamora Vibes",
   description: "Instruments worth hearing before you buy.",
+};
+
+// Tints the mobile browser toolbar to match the dark bar at the top of the
+// page instead of leaving it default white.
+export const viewport: Viewport = {
+  themeColor: "#0e0e0f",
 };
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
